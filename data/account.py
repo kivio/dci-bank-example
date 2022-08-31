@@ -17,3 +17,9 @@ class Account(Base):
         "polymorphic_identity": "accounts", 
         "concrete": True,
     }
+
+    def is_active(self):
+        return self.state == "Open"
+
+    def validate_currency(self, currency):
+        return currency == self.currency
